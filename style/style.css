@@ -5,6 +5,9 @@
 }
 body{
     background-color: #e2e8e9;
+    font-family: 'Lobster', cursive;
+    font-family: 'Lugrasimo', cursive;
+    font-family: 'Poppins', sans-serif;
 }
 nav{
     display: flex;
@@ -16,6 +19,7 @@ nav{
 
 .title{
    text-align: center;
+   font-size: 50px;
 }
 h1{
     text-align: center;
@@ -71,16 +75,21 @@ main{
 }
 
 .details__image{
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 44%;
     display: flex;
 }
 .details__image img{
-    width: 100%;
+    width: 90%;
     height: auto;
 }
 #img__detail2{
     display: none;
+}
+.name{
+top: 36px;
+position: relative;
+font-size: 22px;
 }
 .name, .abilities, .description, .stat{
     display: flex;

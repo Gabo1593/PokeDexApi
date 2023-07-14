@@ -22,7 +22,7 @@ const colorsType = {
   bug: "orange",
   poison: "#f25e5e",
   electric: "#c8c85d",
-  ground: "brown",
+  ground: "#9d6d6d",
   fairy: "pink"
 };
 window.addEventListener("resize", ()=>{
@@ -33,6 +33,9 @@ window.addEventListener("resize", ()=>{
       details.style.display = "flex";
       container.style.display = "none"
     }
+  }else{
+    details.style.display = "flex";
+    container.style.display = "grid"
   }
 })
 
@@ -70,9 +73,10 @@ function pokemones(pokemon){
   <img src=${pokemon.sprites.front_default}> 
   `;
   container.appendChild(divPokedex);
+  colorBg(pokemon, divPokedex)
   divPokedex.addEventListener("click", ()=>{
 
-    colorBg(pokemon)
+    colorBg(pokemon, details)
     nameDetails.innerText = pokemon.name;
     ImgDetails.src = pokemon.sprites.front_default;
     ImgDetails2.src = pokemon.sprites.back_default;
@@ -100,25 +104,25 @@ function pokemones(pokemon){
 }
 pokemonId(50);
 
-function colorBg(colors){
+function colorBg(colors, bg){
   const pokemonColor = colors.types[0].type.name;
   if(pokemonColor == "fire"){
-    details.style.background = colorsType.fire;
+    bg.style.background = colorsType.fire;
   }else if(pokemonColor == "water"){
-    details.style.background = colorsType.water;}
+    bg.style.background = colorsType.water;}
   else if(pokemonColor == "grass"){
-    details.style.background = colorsType.grass;}
+    bg.style.background = colorsType.grass;}
   else if(pokemonColor == "bug"){
-    details.style.background = colorsType.bug;}
+    bg.style.background = colorsType.bug;}
   else if(pokemonColor == "poison"){
-    details.style.background = colorsType.poison;}
+    bg.style.background = colorsType.poison;}
   else if(pokemonColor == "electric"){
-    details.style.background = colorsType.electric;}
+    bg.style.background = colorsType.electric;}
   else if(pokemonColor == "ground"){
-    details.style.background = colorsType.ground;}
+    bg.style.background = colorsType.ground;}
   else if(pokemonColor == "fairy"){
-    details.style.background = colorsType.fairy;}
-    else{details.style.background = colorsType.default;}
+    bg.style.background = colorsType.fairy;}
+    else{bg.style.background = colorsType.default;}
 }
 
 iconClose.addEventListener("click", ()=>{
