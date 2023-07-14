@@ -12,6 +12,7 @@ const hp = document.querySelector("#hp");
 const atk = document.querySelector("#atk");
 const def = document.querySelector("#df");
 const spd = document.querySelector("#spd");
+const iconClose = document.querySelector(".icon_close");
 
 const colorsType = {
   fire: "#ee0505bd",
@@ -24,6 +25,16 @@ const colorsType = {
   ground: "brown",
   fairy: "pink"
 };
+window.addEventListener("resize", ()=>{
+  if(window.innerWidth < 490){
+    if(container.style.display == "flex"){
+      details.style.display = "none";
+    }else{
+      details.style.display = "flex";
+      container.style.display = "none"
+    }
+  }
+})
 
 function pokemonId(numero){
   for(let i = 1; i<=numero; i++){
@@ -33,6 +44,8 @@ function pokemonId(numero){
 }
 
 function fetchPokemon(id){
+  
+
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   .then(function(response) {
     return response.json();
@@ -77,7 +90,10 @@ function pokemones(pokemon){
     def.innerHTML = `Defense: <input type="range" name="${pokemon.stats[2].stat.name}" id="${pokemon.stats[2].stat.name}" value="${pokemon.stats[2].base_stat}"> ${pokemon.stats[2].base_stat}`;
 
     spd.innerHTML = `Speed: <input type="range" name="${pokemon.stats[5].stat.name}" id="${pokemon.stats[5].stat.name}" value="${pokemon.stats[5].base_stat}"> ${pokemon.stats[5].base_stat}`;
-
+      if(window.innerWidth < 490){
+        details.style.display = "flex";
+        container.style.display = "none";
+      }
     details.style.display = "flex";
   })
   
@@ -104,3 +120,8 @@ function colorBg(colors){
     details.style.background = colorsType.fairy;}
     else{details.style.background = colorsType.default;}
 }
+
+iconClose.addEventListener("click", ()=>{
+  details.style.display = "none";
+  container.style.display = "grid";
+})

@@ -24,7 +24,7 @@ h1{
 main{
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
+    
 }
 .container{
     display: grid;
@@ -53,6 +53,23 @@ main{
     right: 0;
     height: 90%;
 }
+
+.details .icon_close{
+    position: absolute;
+    right: 0;
+    background: red;
+    width: 20px;
+    display: none;
+}
+.details .icon_close:hover{
+    width: 40px;
+    background-color: darkred;
+}
+.details .icon_close:active{
+    width: 40px;
+    background-color: darkred;
+}
+
 .details__image{
     width: 100%;
     height: auto;
@@ -79,8 +96,17 @@ p{
 @media(max-width: 500px){
     .details{
         display: none;
+        width: 100%;
     }
     .container{
         width: 100%;
+    }
+    main{
+        display: flex;
+        flex-direction: flex;
+        
+    }
+    .details .icon_close{
+        display: flex;
     }
 }
