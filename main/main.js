@@ -99,6 +99,9 @@ function pokemones(pokemon){
         container.style.display = "none";
       }
     details.style.display = "flex";
+    let description = `${nameDetails.innerText} pokemon ${abilitiesType.innerText}, ${abilitiesName.innerText}`;
+    let sonar = new SpeechSynthesisUtterance(description);
+    speechSynthesis.speak(sonar);
   })
   
 }
