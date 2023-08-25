@@ -25,6 +25,7 @@ const colorsType = {
   ground: "#9d6d6d",
   fairy: "pink"
 };
+
 window.addEventListener("resize", ()=>{
   if(window.innerWidth < 490){
     if(container.style.display == "flex"){
@@ -47,8 +48,6 @@ function pokemonId(numero){
 }
 
 function fetchPokemon(id){
-  
-
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
   .then(function(response) {
     return response.json();
@@ -107,25 +106,12 @@ function pokemones(pokemon){
 }
 pokemonId(50);
 
-function colorBg(colors, bg){
+function colorBg(colors, bg,){
   const pokemonColor = colors.types[0].type.name;
-  if(pokemonColor == "fire"){
-    bg.style.background = colorsType.fire;
-  }else if(pokemonColor == "water"){
-    bg.style.background = colorsType.water;}
-  else if(pokemonColor == "grass"){
-    bg.style.background = colorsType.grass;}
-  else if(pokemonColor == "bug"){
-    bg.style.background = colorsType.bug;}
-  else if(pokemonColor == "poison"){
-    bg.style.background = colorsType.poison;}
-  else if(pokemonColor == "electric"){
-    bg.style.background = colorsType.electric;}
-  else if(pokemonColor == "ground"){
-    bg.style.background = colorsType.ground;}
-  else if(pokemonColor == "fairy"){
-    bg.style.background = colorsType.fairy;}
-    else{bg.style.background = colorsType.default;}
+  if(colorsType[pokemonColor]){
+    bg.style.background = colorsType[pokemonColor];
+  } else{bg.style.background = colorsType.default;}
+
 }
 
 iconClose.addEventListener("click", ()=>{
