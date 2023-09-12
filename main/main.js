@@ -69,7 +69,7 @@ function pokemones(pokemon){
   divPokedex.classList = "divPokedex";
   divPokedex.innerHTML = `
   <h1>${pokemon.name}</h1> 
-  <img src=${pokemon.sprites.front_default}> 
+  <img src=${pokemon.sprites.other.dream_world.front_default}> 
   `;
   container.appendChild(divPokedex);
   colorBg(pokemon, divPokedex)
@@ -77,8 +77,8 @@ function pokemones(pokemon){
 
     colorBg(pokemon, details)
     nameDetails.innerText = pokemon.name;
-    ImgDetails.src = pokemon.sprites.front_default;
-    ImgDetails2.src = pokemon.sprites.back_default;
+    ImgDetails.src = pokemon.sprites.other.dream_world.front_default;
+    ImgDetails2.src = pokemon.sprites.other['official-artwork'].front_default;
     ImgDetails2.style.display= "block"
     numberDetails.innerText = `#${pokemon.id}`;
     abilitiesType.innerText = `Type: ${pokemon.types[0].type.name}`;
